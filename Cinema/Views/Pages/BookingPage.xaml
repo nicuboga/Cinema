@@ -1,0 +1,76 @@
+<Page x:Class="Cinema.Views.Pages.BookingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="{StaticResource BackgroundBrush}">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.15*"/>
+                <ColumnDefinition Width="0.85*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Margin="0,0,12,0">
+                <TextBlock Text="Alege filmul" FontSize="26" FontWeight="Bold"/>
+                <TextBlock Text="Selectează filmul, data și ora. Locurile se aleg în pasul următor."
+                           Foreground="{StaticResource MutedTextBrush}" Margin="0,7,0,24"/>
+
+                <Border Style="{StaticResource CardBorder}">
+                    <StackPanel>
+                        <TextBlock Text="1. Film" FontSize="16" FontWeight="Bold"/>
+                        <ComboBox x:Name="FilmComboBox" Height="48" Margin="0,12,0,0"
+                                  DisplayMemberPath="DisplayName" SelectionChanged="Film_SelectionChanged"/>
+
+                        <Separator Margin="0,22" Background="{StaticResource BorderBrushModern}"/>
+                        <TextBlock Text="2. Data" FontSize="16" FontWeight="Bold"/>
+                        <DatePicker x:Name="ScreeningDatePicker" Height="48" Margin="0,12,0,0"
+                                    SelectedDateChanged="Date_SelectionChanged"/>
+
+                        <Separator Margin="0,22" Background="{StaticResource BorderBrushModern}"/>
+                        <TextBlock Text="3. Ora și sala" FontSize="16" FontWeight="Bold"/>
+                        <ComboBox x:Name="ScreeningComboBox" Height="48" Margin="0,12,0,0"
+                                  DisplayMemberPath="DisplayTime" SelectionChanged="Screening_SelectionChanged"/>
+                        <TextBlock x:Name="NoScreeningText" Text="Nu există proiecții la data aleasă."
+                                   Foreground="{StaticResource DangerBrush}" Margin="0,10,0,0" Visibility="Collapsed"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin="12,0,0,0">
+                <Border Style="{StaticResource CardBorder}" Background="#171B31" BorderThickness="0">
+                    <StackPanel>
+                        <Border Background="#282D48" CornerRadius="12" Height="180">
+                            <Grid>
+                                <Ellipse Width="120" Height="120" Fill="#6D5DFB" Opacity="0.22"/>
+                                <TextBlock Text="▶" Foreground="#8E83FF" FontSize="46"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                        <TextBlock x:Name="SelectedFilmTitle" Text="Selectează un film" Foreground="White"
+                                   FontSize="22" FontWeight="Bold" TextWrapping="Wrap" Margin="0,22,0,0"/>
+                        <TextBlock x:Name="SelectedFilmDetails" Foreground="#AEB4CA" Margin="0,8,0,0"/>
+                        <Grid Margin="0,22,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel>
+                                <TextBlock Text="PROIECȚIE" Foreground="#79809A" FontSize="10" FontWeight="Bold"/>
+                                <TextBlock x:Name="SelectedDateTimeText" Text="—" Foreground="White" FontWeight="SemiBold" Margin="0,5,0,0"/>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Text="PREȚ / LOC" Foreground="#79809A" FontSize="10" FontWeight="Bold"/>
+                                <TextBlock x:Name="SelectedPriceText" Text="—" Foreground="White" FontWeight="SemiBold" Margin="0,5,0,0"/>
+                            </StackPanel>
+                        </Grid>
+                        <Button x:Name="ChooseSeatsButton" Content="Alege locurile" Height="48" Margin="0,28,0,0"
+                                IsEnabled="False" Click="ChooseSeats_Click"/>
+                    </StackPanel>
+                </Border>
+                <Border Background="#EAF8F3" CornerRadius="12" Padding="17" Margin="0,16,0,0">
+                    <TextBlock Text="Locurile marcate ca ocupate nu mai pot fi selectate. Poți rezerva cel mult 10 locuri odată."
+                               Foreground="#226C57" TextWrapping="Wrap" FontSize="13"/>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>

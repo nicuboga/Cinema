@@ -1,0 +1,47 @@
+<Window x:Class="Cinema.Views.TicketWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cinema · Rezervare confirmată" Width="520" Height="650" ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner">
+    <Grid Background="#EEF0F6">
+        <Border Width="420" Margin="44" Background="White" CornerRadius="20" Padding="28">
+            <StackPanel>
+                <Border Width="58" Height="58" CornerRadius="29" Background="#E7F8F1" HorizontalAlignment="Center">
+                    <TextBlock Text="✓" Foreground="{StaticResource SuccessBrush}" FontSize="30" FontWeight="Bold"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+                <TextBlock Text="Rezervare confirmată" FontSize="23" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,16,0,4"/>
+                <TextBlock Text="Păstrează codul pentru accesul la proiecție" Foreground="{StaticResource MutedTextBrush}"
+                           HorizontalAlignment="Center"/>
+
+                <Border Background="#171B31" CornerRadius="14" Padding="22" Margin="0,24,0,0">
+                    <StackPanel>
+                        <TextBlock x:Name="FilmText" Foreground="White" FontSize="20" FontWeight="Bold" TextWrapping="Wrap"/>
+                        <TextBlock x:Name="DateText" Foreground="#B7BCD0" Margin="0,10,0,0"/>
+                        <TextBlock x:Name="RoomText" Foreground="#B7BCD0" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <Grid Margin="0,24,0,0">
+                    <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/></Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <TextBlock Text="LOCURI" Foreground="{StaticResource MutedTextBrush}" FontSize="10" FontWeight="Bold"/>
+                        <TextBlock x:Name="SeatsText" FontSize="16" FontWeight="Bold" Margin="0,5,0,0" TextWrapping="Wrap"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="TOTAL" Foreground="{StaticResource MutedTextBrush}" FontSize="10" FontWeight="Bold"/>
+                        <TextBlock x:Name="TotalText" FontSize="16" FontWeight="Bold" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </Grid>
+
+                <Border Background="#EEEAFE" CornerRadius="12" Padding="17" Margin="0,24,0,0">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="COD REZERVARE" Foreground="#6A61B7" FontSize="10" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="CodeText" Foreground="#4F45B7" FontSize="25" FontWeight="Bold" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </Border>
+                <Button Content="Închide" Height="45" Margin="0,24,0,0" Click="Close_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

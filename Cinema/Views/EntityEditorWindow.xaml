@@ -1,0 +1,31 @@
+<Window x:Class="Cinema.Views.EntityEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cinema · Editare" Width="560" Height="700" MinHeight="560" ResizeMode="CanResize"
+        WindowStartupLocation="CenterOwner">
+    <Grid Background="{StaticResource BackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Background="#171B31" Padding="28,22">
+            <StackPanel>
+                <TextBlock x:Name="EditorTitleText" Text="Editare" Foreground="White" FontSize="22" FontWeight="Bold"/>
+                <TextBlock Text="Completează informațiile și salvează modificările."
+                           Foreground="#AEB4CA" Margin="0,5,0,0"/>
+            </StackPanel>
+        </Border>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <Border Style="{StaticResource CardBorder}" Margin="22" Padding="24">
+                <StackPanel x:Name="FormPanel"/>
+            </Border>
+        </ScrollViewer>
+        <Border Grid.Row="2" Background="White" BorderBrush="{StaticResource BorderBrushModern}" BorderThickness="0,1,0,0" Padding="22,16">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Renunță" Style="{StaticResource SecondaryButton}" MinWidth="100" Margin="0,0,10,0" Click="Cancel_Click"/>
+                <Button Content="Salvează" MinWidth="120" Click="Save_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

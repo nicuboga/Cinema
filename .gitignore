@@ -1,0 +1,40 @@
+# Visual Studio / JetBrains / VS Code
+.vs/
+.idea/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build output
+**/bin/
+**/obj/
+artifacts/
+publish/
+
+# Local runtime and QA files
+tmp/
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite-journal
+smoke-test-error.txt
+admin-preview.png
+
+# Local agent configuration
+.agents/
+.codex/
+
+# Secrets and certificates
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.snk
+appsettings.Development.json
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,84 @@
+<Window x:Class="Cinema.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cinema · Autentificare"
+        Width="1040" Height="680" MinWidth="900" MinHeight="600"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanResize"
+        KeyDown="Window_KeyDown">
+    <Grid Background="#F5F7FB">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.05*"/>
+            <ColumnDefinition Width="0.95*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Margin="22" CornerRadius="24" Background="#12162A">
+            <Grid>
+                <Ellipse Width="390" Height="390" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                         Margin="-150,0,0,-170" Fill="#332B7C" Opacity="0.75"/>
+                <Ellipse Width="260" Height="260" HorizontalAlignment="Right" VerticalAlignment="Top"
+                         Margin="0,-90,-90,0" Fill="#204F74" Opacity="0.65"/>
+                <StackPanel Margin="58" VerticalAlignment="Center">
+                    <Border Width="74" Height="74" CornerRadius="20" Background="#6D5DFB"
+                            HorizontalAlignment="Left" Margin="0,0,0,30">
+                        <TextBlock Text="C" Foreground="White" FontSize="34" FontWeight="Bold"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <TextBlock Text="Cinema" Foreground="White" FontSize="42" FontWeight="Bold"/>
+                    <TextBlock Text="Filmele tale, locul tău."
+                               Foreground="#AEB4CA" FontSize="18" Margin="0,12,0,34"/>
+                    <Border Background="#1C2138" CornerRadius="14" Padding="20">
+                        <StackPanel>
+                            <TextBlock Text="PROGRAM ȘI REZERVĂRI" Foreground="#8E83FF"
+                                       FontSize="12" FontWeight="Bold"/>
+                            <TextBlock Text="Consultă programul, alege locurile și păstrează toate rezervările într-un singur cont."
+                                       Foreground="#D9DCEC" FontSize="14" TextWrapping="Wrap" Margin="0,10,0,0"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Column="1" Margin="66,42">
+            <StackPanel x:Name="LoginPanel" VerticalAlignment="Center">
+                <TextBlock Text="Bine ai revenit" FontSize="32" FontWeight="Bold"/>
+                <TextBlock Text="Autentifică-te pentru a continua" Foreground="{StaticResource MutedTextBrush}"
+                           FontSize="15" Margin="0,7,0,30"/>
+
+                <TextBlock Text="Utilizator" FontWeight="SemiBold" Margin="0,0,0,7"/>
+                <TextBox x:Name="UsernameTextBox" Height="44"/>
+                <TextBlock Text="Parolă" FontWeight="SemiBold" Margin="0,18,0,7"/>
+                <PasswordBox x:Name="PasswordInput" Height="44"/>
+                <TextBlock x:Name="LoginErrorText" Foreground="{StaticResource DangerBrush}"
+                           TextWrapping="Wrap" Margin="0,12,0,0"/>
+                <Button Content="Intră în cont" Height="46" Margin="0,20,0,0" Click="Login_Click"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,22,0,0">
+                    <TextBlock Text="Nu ai cont? " Foreground="{StaticResource MutedTextBrush}" VerticalAlignment="Center"/>
+                    <Button Content="Creează cont" Style="{StaticResource SecondaryButton}"
+                            Padding="10,6" Click="ShowRegister_Click"/>
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel x:Name="RegisterPanel" Visibility="Collapsed" VerticalAlignment="Center">
+                <TextBlock Text="Creează un cont" FontSize="32" FontWeight="Bold"/>
+                <TextBlock Text="Conturile noi primesc automat rolul de utilizator"
+                           Foreground="{StaticResource MutedTextBrush}" FontSize="15" Margin="0,7,0,28"/>
+
+                <TextBlock Text="Nume complet" FontWeight="SemiBold" Margin="0,0,0,7"/>
+                <TextBox x:Name="RegisterFullNameTextBox" Height="44"/>
+                <TextBlock Text="Utilizator" FontWeight="SemiBold" Margin="0,15,0,7"/>
+                <TextBox x:Name="RegisterUsernameTextBox" Height="44"/>
+                <TextBlock Text="Parolă (minimum 8 caractere)" FontWeight="SemiBold" Margin="0,15,0,7"/>
+                <PasswordBox x:Name="RegisterPasswordInput" Height="44"/>
+                <TextBlock Text="Confirmă parola" FontWeight="SemiBold" Margin="0,15,0,7"/>
+                <PasswordBox x:Name="RegisterConfirmPasswordInput" Height="44"/>
+                <TextBlock x:Name="RegisterErrorText" Foreground="{StaticResource DangerBrush}"
+                           TextWrapping="Wrap" Margin="0,12,0,0"/>
+                <Button Content="Creează cont și continuă" Height="46" Margin="0,18,0,0" Click="Register_Click"/>
+                <Button Content="Înapoi la autentificare" Style="{StaticResource SecondaryButton}"
+                        Height="44" Margin="0,10,0,0" Click="ShowLogin_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
